@@ -1,4 +1,5 @@
 <template>
+<button @click="add">ADD</button>
 <h1>{{ reversedMessage }}</h1>
 <h1>{{ reversedMessage }}</h1>
 <h1>{{ reversedMessage }}</h1>
@@ -9,20 +10,33 @@
 export default {
   data(){
     return {
+      //Getter, Setter
       msg: 'Hello Computed!'
     }
   },
   computed:{
-    reversedMessage(){
-      return this.msg.split('').reverse().join('')
+    //Getter
+    // reversedMessage(){
+    //   return this.msg.split('').reverse().join('')
+    //Getter, Setter
+    reversedMessage: {
+      get(){
+         return this.msg.split('').reverse().join('')
+      },
+      set(newValue){
+        this.msg = newValue
+      },
     }
+    
   },
   methods: {
-    reversMessage(){
-      return this.msg.split('').reverse().join('')
+    add(){
+      this.reversedMessage += '!?'
+      // this.msg += '!?'
+    }
     }
   }
-}
+
 </script>
 
 <style scoped>
