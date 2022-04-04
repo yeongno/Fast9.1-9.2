@@ -1,29 +1,16 @@
 <template>
-  <!-- <h1 v-bind:class="msg">{{ msg }}</h1> -->
-  <h1 :[attr]="'active'"
-  @[event]="add">{{ msg }}</h1>
+  <Fruits />
 </template>
 
 <script>
+import Fruits from '~/components/Fruits'
 export default {
-  data(){
-    return{
-      msg: 'active',
-      attr: 'class',
-      event: 'click'
-    }
-  },
-  methods: {
-    add(){
-      this.msg += '!'
-    }
+  components: {
+    Fruits
   }
 }
 </script>
 
 <style scoped>
-.active{
-  color:royalblue;
-  font-size: 100px;
-}
+
 </style>
