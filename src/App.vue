@@ -1,8 +1,5 @@
 <template>
-<button @click="add">ADD</button>
-<h1>{{ reversedMessage }}</h1>
-<h1>{{ reversedMessage }}</h1>
-<h1>{{ reversedMessage }}</h1>
+<h1 @click="changeMessage">{{ msg }}</h1>
 <h1>{{ reversedMessage }}</h1>
 </template>
 
@@ -10,29 +7,25 @@
 export default {
   data(){
     return {
-      //Getter, Setter
-      msg: 'Hello Computed!'
+      msg: 'Hello?'
     }
   },
   computed:{
-    //Getter
-    // reversedMessage(){
-    //   return this.msg.split('').reverse().join('')
-    //Getter, Setter
-    reversedMessage: {
-      get(){
+    reversedMessage() {
          return this.msg.split('').reverse().join('')
-      },
-      set(newValue){
-        this.msg = newValue
-      },
+      }
+    },
+    watch:{//변경사항을 감시
+    msg(newValue){
+      console.log('msg:', newValue)
+    },
+    reversedMessage(){
+      console.log('reverseMessage: ', this.reversedMessage)
     }
-    
-  },
+    },
   methods: {
-    add(){
-      this.reversedMessage += '!?'
-      // this.msg += '!?'
+    changeMessage(){
+      this.msg = 'Good!'
     }
     }
   }
