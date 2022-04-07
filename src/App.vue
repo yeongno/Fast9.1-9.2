@@ -2,24 +2,34 @@
 <button @click="handler">
   Click me!
 </button>
-<h1 v-show="isShow">
-  Hello?!
-</h1>
-
+<ul>
+  <li
+  v-for="{id, name} in newFruits"
+  :key="id">
+  {{name}}-{{id}}
+  </li>
+</ul>
 </template>
 
 <script>
+import shortid from 'shortid'
 export default {
   data(){
     return {
-      isShow: false,
-      count: 0
+      fruits: ['Apple', 'Banana', 'Cherry'],
+    }
+  },
+  computed:{
+    newFruits(){
+      return this.fruits.map(fruit=>({
+          id: shortid.generate(),
+          name: fruit
+      }))
     }
   },
   methods:{
     handler(){
-      this.isShow = !this.isShow
-      this.count += 1
+      this.fruits.push('Orange')
     }
   }
 }
