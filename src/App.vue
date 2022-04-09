@@ -1,10 +1,9 @@
 <template>
 <div
 class="parent"
-@click.capture.stop="handlerA">
+@click.self="handlerA">
 <div
-class="child"
-@click="handlerB"></div>
+class="child"></div>
 </div>
 </template>
 
