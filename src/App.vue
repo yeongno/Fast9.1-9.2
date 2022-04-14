@@ -2,18 +2,19 @@
 <h1>{{msg}}</h1>
 <input 
 type="text" 
-:value="msg"
-@input ="msg =$event.target.value"> 
-<h1>{{checked}}</h1>
-<input type="checkbox" v-model="checked">
+v-model.number="msg"> 
 </template>
 
 <script>
 export default {
   data(){
     return{
-      msg: 'Hello world!',
-      checked: false
+      msg: 123,
+    }
+  },
+  watch:{
+    msg(){
+      console.log(typeof this.msg)
     }
   }
 }
