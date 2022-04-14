@@ -1,15 +1,20 @@
 <template>
+<h1>{{msg}}</h1>
 <input 
-type="text"
-@keydown.ctrl.shift.a="handler">
+type="text" 
+:value="msg"
+@input ="msg =$event.target.value"> 
+<h1>{{checked}}</h1>
+<input type="checkbox" v-model="checked">
 </template>
 
 <script>
 export default {
-  methods:{
-    handler(event){
-      console.log('Enter!!')
-    }  
+  data(){
+    return{
+      msg: 'Hello world!',
+      checked: false
+    }
   }
 }
 </script>
