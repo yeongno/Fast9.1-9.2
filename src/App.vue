@@ -2,19 +2,19 @@
 <h1>{{msg}}</h1>
 <input 
 type="text" 
-v-model.number="msg"> 
+v-model.trim="msg"> 
 </template>
 
 <script>
 export default {
   data(){
     return{
-      msg: 123,
+      msg: "Hello world!!",
     }
   },
   watch:{
     msg(){
-      console.log(typeof this.msg)
+      console.log(this.msg)
     }
   }
 }
